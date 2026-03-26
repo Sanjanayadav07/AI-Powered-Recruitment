@@ -1,5 +1,5 @@
-import dotenv from "dotenv";   // ✅ FIRST
-dotenv.config();               // ✅ SECOND
+import dotenv from "dotenv";
+dotenv.config();
 
 import express from "express";
 import cors from "cors";
@@ -12,7 +12,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-connectDB(); // now env is safe
+connectDB();
+
+// ✅ ROOT ROUTE FIX
+app.get("/", (req, res) => {
+  res.send("AI Recruiter API running 🚀");
+});
 
 app.use("/", userRoutes);
 app.use("/upload", uploadRoutes);
