@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://ai-powered-recruitment-plum.vercel.app",
 });
 
 export const loginUser = (data) => API.post("/login", data);
